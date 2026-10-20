@@ -159,14 +159,14 @@ void Heap<T,PComparator>::pop()
       int child = firstC+i;
 
       if(child<static_cast<int>(data_.size())&&comp_(data_[child], data_[bestC])) bestC = child;
-
-      if(comp_(data_[bestC], data_[index])) //do swap thing
-      {
-        std::swap(data_[bestC], data_[index]);
-        index = bestC;
-      }
-      else break; // if the priority is correct already, end it
     }
+
+    if(comp_(data_[bestC], data_[index])) //do swap thing
+    {
+      std::swap(data_[bestC], data_[index]);
+      index = bestC;
+    }
+    else break; // if the priority is correct already, end it
   }
 }
 
